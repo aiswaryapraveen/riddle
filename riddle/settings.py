@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'games',
     'sudoku',
+    'numbersliding',
 ]
 
 LOGIN_URL = 'login'           # Redirect for unauthenticated users

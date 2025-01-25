@@ -1,5 +1,7 @@
-#from django.urls import path
-#from . import views
+from django.urls import path
+from . import views
 
-#urlpatterns = [
-   # path('numbersliding/', views.sudoku_game, name='sudoku_game'),
+urlpatterns = [
+    path('neasy/', views.neasy, name='neasy'),
+    
+]

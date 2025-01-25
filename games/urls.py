@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('games/', views.play, name='play' ),
     path('',include('sudoku.urls')),
+    path('',include('numbersliding.urls')),
 ]

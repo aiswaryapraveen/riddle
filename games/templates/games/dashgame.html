@@ -11,8 +11,9 @@
             <div class="card shadow">
                 <div class="card-body text-center">
                     <h4 class="card-title">Memory Game</h4>
-                    <p class="card-text">Test your memory and match all the tiles!</p>
-                    <a class="btn btn-primary">Play Memory Game</a>
+                    <a href="{% url 'easy' %}" class="btn btn-success">easy </a> 
+                    <a href="{% url 'medium' %}" class="btn btn-success">medium</a>
+                    <a href="{% url 'hard' %}" class="btn btn-success">hard</a>
                 </div>
             </div>
         </div>
@@ -34,9 +35,10 @@
         <div class="col-md-4 mb-4">
             <div class="card shadow">
                 <div class="card-body text-center">
-                    <h4 class="card-title">Quiz Game</h4>
-                    <p class="card-text">Test your knowledge in various topics!</p>
-                    <a href="#" class="btn btn-warning">Play Quiz Game</a> <!-- Add URL later -->
+                    <h4 class="card-title">Number Sliding</h4>
+                    <a href="{% url 'neasy' %}" class="btn btn-success">easy</a>
+                    <a href="{% url 'medium' %}" class="btn btn-success">medium</a>
+                    <a href="{% url 'hard' %}" class="btn btn-success">hard</a>
                 </div>
             </div>
         </div>
