@@ -1,0 +1,102 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Sudoku Game{% endblock %}
+
+{% block content %}
+<h1>Sudoku Game</h1>
+<div class="sudoku-grid" id="sudokuGrid"></div>
+<div class="controls">
+    <button onclick="generateSudoku()">New Game</button>
+    <button onclick="checkSolution()">Check Solution</button>
+</div>
+<div id="message"></div>
+
+<script>
+    const sudokuGrid = document.getElementById('sudokuGrid');
+    const messageDiv = document.getElementById('message');
+
+    const examplePuzzle = [
+        [5, 3, null, null, 7, null, null, null, null],
+        [6, null, null, 1, 9, 5, null, null, null],
+        [null, 9, 8, null, null, null, null, 6, null],
+        [8, null, null, null, 6, null, null, null, 3],
+        [4, null, null, 8, null, 3, null, null, 1],
+        [7, null, null, null, 2, null, null, null, 6],
+        [null, 6, null, null, null, null, 2, 8, null],
+        [null, null, null, 4, 1, 9, null, null, 5],
+        [null, null, null, null, 8, null, null, 7, 9],
+    ];
+
+    function generateGrid(puzzle) {
+        sudokuGrid.innerHTML = '';
+        messageDiv.textContent = ''; // Clear the message
+        messageDiv.className = '';  // Reset message style
+        for (let row = 0; row < 9; row++) {
+            for (let col = 0; col < 9; col++) {
+                const cell = document.createElement('input');
+                cell.type = 'text';
+                cell.maxLength = 1;
+                cell.className = 'cell';
+                if (puzzle[row][col]) {
+                    cell.value = puzzle[row][col];
+                    cell.readOnly = true;
+                }
+                cell.dataset.row = row;
+                cell.dataset.col = col;
+                sudokuGrid.appendChild(cell);
+            }
+        }
+    }
+
+    function isValidSudoku() {
+        const rows = Array.from({ length: 9 }, () => new Set());
+        const cols = Array.from({ length: 9 }, () => new Set());
+        const boxes = Array.from({ length: 9 }, () => new Set());
+
+        let isValid = true;
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => cell.classList.remove('incorrect')); // Reset incorrect highlights
+
+        for (const cell of cells) {
+            const value = cell.value;
+            if (!value) continue;
+
+            const row = parseInt(cell.dataset.row);
+            const col = parseInt(cell.dataset.col);
+            const box = Math.floor(row / 3) * 3 + Math.floor(col / 3);
+
+            if (
+                rows[row].has(value) ||
+                cols[col].has(value) ||
+                boxes[box].has(value)
+            ) {
+                cell.classList.add('incorrect'); // Highlight incorrect cell
+                isValid = false;
+            }
+
+            rows[row].add(value);
+            cols[col].add(value);
+            boxes[box].add(value);
+        }
+
+        return isValid;
+    }
+
+    function generateSudoku() {
+        generateGrid(examplePuzzle);
+    }
+
+    function checkSolution() {
+        if (isValidSudoku()) {
+            messageDiv.textContent = 'Congratulations! The solution is correct.';
+            messageDiv.className = 'correct';
+        } else {
+            messageDiv.textContent = 'There are mistakes in your solution. Please try again.';
+            messageDiv.className = 'incorrect';
+        }
+    }
+
+    // Initialize the game
+    generateSudoku();
+</script>
+{% endblock %}
