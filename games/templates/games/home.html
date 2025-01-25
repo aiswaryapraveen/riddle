@@ -1,0 +1,38 @@
+{% extends "games/base.html" %}
+
+{% block content %}
+<!-- Dashboard Section -->
+<div class="container mt-4">
+    <h1>Welcome to Your Dashboard</h1>
+    <p class="lead">Manage your account, play games, or view your progress.</p>
+
+    <!-- Navigation Grid -->
+    <div class="row mt-4">
+        <!-- Game Options Section -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Games</h4>
+                    <p class="card-text">Explore and play your favorite games.</p>
+                    <a href="{% url 'play' %}" class="btn btn-primary">Play !</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Sections (Optional) -->
+    <div class="row mt-4">
+        <!-- About Section -->
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="card-title">About GameHub</h4>
+                    <p class="card-text">Learn more about the app and its features.</p>
+                    <a href="#" class="btn btn-light">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "games/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Select a Game</h1>
+    <p class="lead">Choose a game to play!</p>
+
+    <div class="row mt-4">
+        <!-- Memory Game -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Memory Game</h4>
+                    <p class="card-text">Test your memory and match all the tiles!</p>
+                    <a class="btn btn-primary">Play Memory Game</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maze Game -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Maze Game</h4>
+                    <p class="card-text">Solve the maze and find your way out!</p>
+                    <a href="#" class="btn btn-success">Play Maze Game</a> <!-- Add URL later -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Game -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Quiz Game</h4>
+                    <p class="card-text">Test your knowledge in various topics!</p>
+                    <a href="#" class="btn btn-warning">Play Quiz Game</a> <!-- Add URL later -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

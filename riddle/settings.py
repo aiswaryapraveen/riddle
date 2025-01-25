@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'sudoku',
 ]
 
+LOGIN_URL = 'login'           # Redirect for unauthenticated users
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'about'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
