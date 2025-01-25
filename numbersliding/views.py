@@ -4,3 +4,7 @@ from django.shortcuts import render
 
 def neasy(request):
     return render(request,'numbersliding/easy.html')
+def nmedium(request):
+    return render(request,'numbersliding/medium.html')
+def nhard(request):
+    return render(request,'numbersliding/hard.html')

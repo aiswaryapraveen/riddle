@@ -11,7 +11,7 @@
         <button class="btn btn-secondary" onclick="shuffleTiles()">Shuffle</button>
     </div>
     <div id="message" class="mt-3"></div>
-    <div id="timer" class="mt-3 text-danger" style="font-size: 20px;">Time Left: 300s</div>
+    <div id="timer" class="mt-3 text-danger" style="font-size: 20px;">Time Left: 120s</div>
 </div>
 <style>
     .puzzle-grid {
@@ -55,7 +55,7 @@
 
     let tiles = Array.from({ length: 15 }, (_, i) => i + 1);
     tiles.push("");
-    let timeLeft = 300; 
+    let timeLeft = 120; 
     let timerInterval;
     let gameOver = false; 
 
@@ -145,7 +145,7 @@
     }
 
     function startGame() {
-        timeLeft = 300; 
+        timeLeft = 120; 
         timerDiv.textContent = `Time Left: ${timeLeft}s`;
         clearInterval(timerInterval); 
         gameOver = false; 
