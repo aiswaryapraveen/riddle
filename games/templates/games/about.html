@@ -5,13 +5,13 @@
 {% block content %}
 <!-- Hero Section -->
 <div class="hero-section text-center text-white py-5">
-    <h1 class="display-4" style="color: rgb(0, 0, 0)">Welcome to Riddles</h1>
+    <h1 class="display-4" style="color: rgb(0, 0, 0)">Riddles</h1>
     <p class="lead"style="color: black">Your new playground of fun, interactive self-games!</p>
-    <a class="btn btn-warning btn-lg mt-3 px-4 py-2">Get Started</a>
+    <a href="{% url 'register' %}" class="btn btn-warning btn-lg mt-3 px-4 py-2">Get Started</a>
 </div>
 
 <!-- Features Section -->
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h2 class="text-center">Why Riddles?</h2>
     <div class="row mt-4">
         <div class="col-md-4">
@@ -40,12 +40,4 @@
         </div>
     </div>
 </div>
-
-<!-- Call to Action Section -->
-<div class="text-center mt-5">
-    <h3>Ready to Play?</h3>
-    <p class="lead">Join us now and start playing fun games designed for relaxation!</p>
-    <a class="btn btn-warning btn-lg mt-3 px-4 py-2 mb-4">Join Now</a>
-</div>
-
 {% endblock %}
