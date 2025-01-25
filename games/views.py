@@ -6,6 +6,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.models import User
+from .forms import UserUpdateForm
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from .forms import CombinedUserForm
 
 # Registration view (for user signup)
 def register(request):
@@ -57,3 +61,23 @@ def home(request):
 
 def play(request):
     return render(request, 'games/dashgame.html')
+
+@login_required
+def user_settings(request):
+    if request.method == 'POST':
+        form = CombinedUserForm(request.user, request.POST)
+        if form.is_valid():
+            # Save user details
+            form.save()
+
+            # Update session hash to keep the user logged in after password change
+            update_session_auth_hash(request, form.user)
+
+            messages.success(request, "Your profile and password have been updated successfully.")
+            return redirect('user_settings')
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = CombinedUserForm(request.user)
+
+    return render(request, 'games/user_settings.html', {'form': form})
