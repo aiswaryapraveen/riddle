@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'games',
     'sudoku',
     'numbersliding',
+    'memory',
 ]
 
 LOGIN_URL = 'login'           # Redirect for unauthenticated users

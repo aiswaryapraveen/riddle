@@ -11,4 +11,5 @@ urlpatterns = [
     path('games/', views.play, name='play' ),
     path('',include('sudoku.urls')),
     path('',include('numbersliding.urls')),
+    path('',include('memory.urls')),
 ]
