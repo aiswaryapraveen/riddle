@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sudoku',
     'numbersliding',
     'memory',
+    'type',
 ]
 
 LOGIN_URL = 'login'           # Redirect for unauthenticated users

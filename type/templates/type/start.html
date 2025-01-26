@@ -1,0 +1,53 @@
+{% extends "games/base.html" %}
+
+{% block title %}Typing Speed Test{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="mb-4">Typing Speed Test</h1>
+    <p id="paragraph" class="mb-4" style="font-size: 18px;">{{ paragraph }}</p>
+    <textarea 
+        id="user-input" 
+        class="form-control mb-3" 
+        rows="5" 
+        placeholder="Start typing here..."
+        style="resize: none; font-size: 16px;">
+    </textarea>
+    <button id="submit-btn" class="btn bg-black text-white mb-3">Submit</button>
+    <div id="results" class="mt-3" style="font-size: 18px; color: green;"></div>
+</div>
+
+<script>
+    const submitBtn = document.getElementById('submit-btn');
+    const userInput = document.getElementById('user-input');
+    const resultsDiv = document.getElementById('results');
+
+    submitBtn.addEventListener('click', async () => {
+        const input = userInput.value.trim();
+        if (!input) {
+            resultsDiv.textContent = 'Please type something before submitting.';
+            resultsDiv.style.color = 'red';
+            return;
+        }
+        const response = await fetch('{% url "tsubmit" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: `user_input=${encodeURIComponent(input)}`,
+        });
+        const data = await response.json();
+        if (data.error) {
+            resultsDiv.textContent = data.error;
+            resultsDiv.style.color = 'red';
+        } else {
+            resultsDiv.innerHTML = `
+                <p>Time Taken: ${data.time_taken} seconds</p>
+                <p>Words Per Minute: ${data.wpm}</p>
+                <p>Accuracy: ${data.accuracy}%</p>
+            `;
+        }
+    });
+</script>
+{% endblock %}

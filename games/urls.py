@@ -13,4 +13,5 @@ urlpatterns = [
     path('',include('sudoku.urls')),
     path('',include('numbersliding.urls')),
     path('',include('memory.urls')),
+    path('type/',include('type.urls')),
 ]
