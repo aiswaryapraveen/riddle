@@ -58,14 +58,7 @@ registration
 # Video
 [https://drive.google.com/file/d/1qMW3h1yJHhGVSStPeUIj1u2o_TO5RZGJ/view?usp=drive_link]
 
-
-# Additional Demos
-[Add any extra demo materials/links]
-
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Aiswarya Praveen: BUilt the application and worked in two games.
+- Lishamol Sebastian: Worked in two games and did the testing.
 
----
-Made with ❤️ at TinkerHub
